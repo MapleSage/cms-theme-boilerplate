@@ -1,14 +1,14 @@
 {
   "label": "MapleSage Insurance Theme",
   "author": {
-    "name": "MapleSage Insurance Theme",
+    "name": "MapleSage",
     "email": "info@maplesage.com",
     "url": "https://www.maplesage.com"
-	},
+  },
   "documentation_url": "https://developers.hubspot.com/docs/cms/building-blocks/themes/hubspot-cms-boilerplate",
-  "example_url": "https://boilerplate.hubspotcms.com",
-  "preview_path": "./templates/home.html",
-  "screenshot_path": "./images/template-previews/home.png",
+  "example_url": "https://www.maplesage.com/insurance",
+  "preview_path": "./templates/insurance-home.html",
+  "screenshot_path": "./images/template-previews/insurance-home.png",
   "enable_domain_stylesheets": false,
   "license": "./license.txt",
   "responsive_breakpoints": [
@@ -19,5 +19,16 @@
         "value": 477
       }
     }
-  ]
+  ],
+  "color_scheme": {
+    "primary": "#102D7B",
+    "secondary": "#DCE2F0",
+    "accent": "#FA7802"
+  },
+  "fonts": {
+    "primary": {
+      "font": "Inter",
+      "fallback": "sans-serif"
+    }
+  }
 }
