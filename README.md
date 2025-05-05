@@ -28,7 +28,7 @@ The [HubSpot CMS Boilerplate](https://designers.hubspot.com/docs/building-blocks
 
 ## Getting started
 
-### To download the HubSpot CMS Boilerplate using the HubSpot CMS CLI:
+### To download the HubSpot CMS Boilerplate using the HubSpot CMS CLI
 
 Before getting started, you will need to have [Node.js](https://nodejs.org) installed, the [HubSpot CMS CLI](https://developers.hubspot.com/docs/cms/guides/getting-started-with-local-development#install-dependencies) installed, and we strongly suggest that you set up a [HubSpot CMS Developer Sandbox](https://offers.hubspot.com/free-cms-developer-sandbox) for your QA/testing environment.
 
@@ -39,7 +39,7 @@ Before getting started, you will need to have [Node.js](https://nodejs.org) inst
 
 Please reference our _[Quick start guide to developing on the HubSpot CMS](https://developers.hubspot.com/docs/cms/guides/getting-started)_ and our _[Getting started with local development](https://designers.hubspot.com/tutorials/getting-started-with-local-development)_ articles for more information.
 
-### To use version control in your project using GitHub and GitHub Actions:
+### To use version control in your project using GitHub and GitHub Actions
 
 1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) the HubSpot CMS Boilerplate repository and [clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) your forked repository to your computer
 2. [Set up GitHub secrets in your forked repository to encrypt sensitive information from showing publically](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for `HUBSPOT_PORTAL_ID` and `HUBSPOT_PERSONAL_ACCESS_KEY`

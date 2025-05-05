@@ -3,6 +3,7 @@
 The style guide for the HubSpot CMS boilerplate. Please use this style guide as a reference when making pull requests to the [cms-theme-boilerplate](https://github.com/HubSpot/cms-theme-boilerplate/blob/master/STYLEGUIDE.md) repository.
 
 ## Table of contents
+
 - [HTML](#html)
 - [HubL](#hubl)
 - [CSS](#css)
@@ -17,9 +18,11 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 ## HTML
 
 ### HTML best practices
+
 1. Two elements should never contain the same `id`.
 2. Avoid inline CSS whenever possible.
 3. Avoid unnecessary parent elements/wrappers whenever possible.
+
 ```html
 <!-- Good example -->
 <img class="featured-image" src="test.img" alt="Test Image">
@@ -29,13 +32,16 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
   <img src="test.img" alt="Test Image">
 </div>
 ```
+
 4. Render scripts at the end of the body which can be accomplished in HubSpot using the [`require_js` HubL function](https://designers.hubspot.com/docs/hubl/functions#require-js).
 5. Use unicode characters over entity refererences, with the exception of characters with special meanings.
 6. Do not use tables for layout. Only use tables when displaying tabular data.
 7. For external links/files, if the asset you need is available on SSL, always use `https://`.
 
 ### Accessibility
+
 1. Use [semantic markup](https://developer.mozilla.org/en-US/docs/Glossary/Semantics) whenever possible.
+
 ```html
 <!-- Good example -->
 <section>
@@ -77,11 +83,13 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
   </div>
 </div>
 ```
+
 2. Use the `alt` attribute for all images that are used as more than decoration.
 3. Use the `tabindex="0"` attribute to allow elements besides links and forms to recieve keyboard focus. Use the `tabindex="-1"` attribute to allow elements besides links and forms to receive programattic focus, meaning focus that can be set to the element through scripting. You can read [more about this topic here](https://webaim.org/techniques/keyboard/tabindex).
 4. Use [aria attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) and [landmarks](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics#SignpostsLandmarks) when appropriate.
 
 ### HTML code formatting
+
 1. Write tag names, attributes, and values in lowercase.<br>
 **Good example:**<br>
 `<button type="button>Click Me</button>`<br>
@@ -107,6 +115,7 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 `<p>Here is a paragraph</p>___`<br>
 
 5. Avoid new lines between tag names and content.
+
 ```html
 <!-- Good example -->
 <p>This is my best paragraph yet!</p>
@@ -116,7 +125,9 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
   This is my best paragraph yet!
 </p>
 ```
+
 6. Use a new line for every block, list, or table element and indent their child elements.
+
 ```html
 <!-- Good example -->
 <ul>
@@ -126,22 +137,29 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 <!-- Bad example -->
 <ul><li>Here is a list item</li></ul>
 ```
+
 7. Indent tags by two spaces.
 8. Boolean attributes:
-  - When adding Boolean attributes to elements, be sure their placement is at the end of the element tag for optimal legibility.
-  - Booleans do not need a declared value, only the name of the boolean is necessary for a "true" value to occur.<br>
+
+- When adding Boolean attributes to elements, be sure their placement is at the end of the element tag for optimal legibility.
+- Booleans do not need a declared value, only the name of the boolean is necessary for a "true" value to occur.<br>
 **Good example:**<br>
 `<input type="checkbox" value="..." checked>`<br>
 **Bad example:**<br>
 `<input type="checkbox" checked="true" value="...">"`<br>
 
 9. Use comments where appropriate to make it easier for another developer to understand your HTML.
-  - HubL comments (e.g. `{# comment #}`) should be used if your comment is intended to help developers using your code (HubL comments wouldn't show in the source code of a website page). HTML comments should be used if the comment is something that you want to show in the page's source code.
-  - Add a comment above and below sections so that it is easy to determine where sections are.
+
+- HubL comments (e.g. `{# comment #}`) should be used if your comment is intended to help developers using your code (HubL comments wouldn't show in the source code of a website page). HTML comments should be used if the comment is something that you want to show in the page's source code.
+- Add a comment above and below sections so that it is easy to determine where sections are.
+
 10. Wrap long lines to increase readability (wrap at 100 characters).
 11. Don't close void elements.
-  - `<br>` over `<br />`
+
+- `<br>` over `<br />`
+
 12. Omit type attributes for style sheets and scripts.
+
 ```html
 <!-- Good example -->
 <link rel="stylesheet" href="mystyle.css">
@@ -155,6 +173,7 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 ## HubL
 
 ### HubL code formatting
+
 1. HubL variables should have a space between the brackets on either side of the variable name.<br>
 **Good example:**<br>
 `{{ variable }}`<br>
@@ -182,6 +201,7 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 ## CSS
 
 ### CSS best practices
+
 1. Use a consistent box model style for the entire document.
 2. Avoid float and clearfixes whenever possible (flex is preferred).
 3. Avoid overloading selectors if you don't have to.<br>
@@ -193,9 +213,11 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 4. Avoid `!important` tags whenever possible.
 
 ### Accessibility
+
 1. Do not set your site's link focus to `outline: none;`. Never. Ever.
 2. Style hover and focus classes, items should be reactive to both mouse and keyboard inputs.
 3. For text that needs to be visually hidden but allow for screenreaders to see it, please use the following snippet rather than `visibility: hidden` or `display: none`:
+
 ```css
 .show-for-sr {
   border: 0 !important;
@@ -210,7 +232,9 @@ The style guide for the HubSpot CMS boilerplate. Please use this style guide as 
 ```
 
 ### Vertical rhythm
+
 Responsive vertical rhythm is a CSS pattern that we use on the HubSpot CMS boilerplate. [This article](https://zellwk.com/blog/responsive-vertical-rhythm/) explains the concept in more detail. Below is a quick example of how line-height and margins should match in order to create this consistent spacing.
+
 ```css
 /* set line height on html */
 html {
@@ -224,7 +248,9 @@ p {
 ```
 
 ### CSS code formatting
+
 1. CSS declarations should be alphabetized.
+
 ```css
 /* Good example */
 .css-class {
@@ -242,25 +268,27 @@ p {
     padding: 10px;
 }
 ```
+
 2. Use the [BEM class structure](https://css-tricks.com/bem-101/).
-  - Make names as short as possible, but as long as necessary to convey meaning. When in doubt, make a name descriptive enough to where you don't have concerns about it overlapping with another class name in another similar component.
-  - [Flatten grandchild elements](https://assortment.io/posts/grandchild-elements-bem-css#flattening-grandchildren).
+
+- Make names as short as possible, but as long as necessary to convey meaning. When in doubt, make a name descriptive enough to where you don't have concerns about it overlapping with another class name in another similar component.
+- [Flatten grandchild elements](https://assortment.io/posts/grandchild-elements-bem-css#flattening-grandchildren).
 
 ```html
 <!-- Example of BEM Structure on a component -->
 <div class="card card--modifier-one"> <!-- block w/ modifier -->
-	<h1 class="card__title">Lorem ipsum</h1> <!-- element -->
-	<div class="card__content"> <!-- element -->
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod, eaque dolores voluptatibus dolorem sit.</p>
-	</div>
-	<div class="card__footer"> <!-- element -->
-		<a href="#">Impedit sit</a>
-		<img class="card__logo" src="#"> <!-- grandchild (flattened) -->
-		<div class="card__cta"> <!-- grandchild (flattened) -->
-			<button class="card__button">Delectus Alias</button> <!-- grandchild (flattened) -->
-			<button class="card__button">Porro Nesciunt</button> <!-- grandchild (flattened) -->
-		</div>
-	</div>
+ <h1 class="card__title">Lorem ipsum</h1> <!-- element -->
+ <div class="card__content"> <!-- element -->
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod, eaque dolores voluptatibus dolorem sit.</p>
+ </div>
+ <div class="card__footer"> <!-- element -->
+  <a href="#">Impedit sit</a>
+  <img class="card__logo" src="#"> <!-- grandchild (flattened) -->
+  <div class="card__cta"> <!-- grandchild (flattened) -->
+   <button class="card__button">Delectus Alias</button> <!-- grandchild (flattened) -->
+   <button class="card__button">Porro Nesciunt</button> <!-- grandchild (flattened) -->
+  </div>
+ </div>
 </div>
 ```
 
@@ -281,6 +309,7 @@ When utilizing these classnames in CSS, the following code is an example of how 
 
 3. Use single quotation marks for CSS.
 4. End every declaration with a semicolon.
+
 ```css
 /* Good example */
 .css-class {
@@ -294,7 +323,9 @@ When utilizing these classnames in CSS, the following code is an example of how 
     text-decoration: none
 }
 ```
+
 5. Use shorthand properties where available to keep code terse.
+
 ```css
 /* Good example */
 .css-class {
@@ -309,6 +340,7 @@ When utilizing these classnames in CSS, the following code is an example of how 
     padding-left: 10px;
 }
 ```
+
 6. Use leading 0's before values.<br>
 **Good example:**<br>
 `animation-duration: 0.5s;`<br>
@@ -316,6 +348,7 @@ When utilizing these classnames in CSS, the following code is an example of how 
 `animation-duration: .5s;`<br>
 
 7. Separate selectors and declarations by new lines.
+
 ```css
 /* Good example */
 .css-class {
@@ -326,7 +359,9 @@ When utilizing these classnames in CSS, the following code is an example of how 
 /* Bad example */
 .css-class { color: #000; margin-top: 10px; }
 ```
+
 8. Indent all block conent.
+
 ```css
 /* Good example */
 .css-class {
@@ -340,6 +375,7 @@ font-size: 20px;
 padding: 10px;
 }
 ```
+
 9. Always use a single space between the property and value.<br>
 **Good example:**<br>
 `float: none;`<br>
@@ -347,6 +383,7 @@ padding: 10px;
 `float:none;`<br>
 
 10. When grouping together, Selectors should be placed on their own lines and separated by a comma.
+
 ```css
 /* Good example */
 .css-class,
@@ -359,7 +396,9 @@ padding: 10px;
   border: 1px solid #000;
 }
 ```
+
 11. One space should be used between selectors and the opening brace of the declaration block. In addition, closing braces should be placed on a new line by themselves.
+
 ```css
 /* Good example */
 .css-class {
@@ -370,6 +409,7 @@ padding: 10px;
 .css-class{
   font-weight: 700;}
 ```
+
 12. Include a space after each comma in separated property values.<br>
 **Good example:**<br>
 `background-color: rgba(0, 0, 0, 0.5);`<br>
@@ -383,6 +423,7 @@ padding: 10px;
 `margin-top: 0px;`<br>
 
 14. Media queries should be written directly next to the non-media queried element.
+
 ```css
 .css-class {
     width: 50%;
@@ -393,7 +434,9 @@ padding: 10px;
     }
 }
 ```
+
 15. Avoid duplicating style declarations if they'll be inherited or overridden.
+
 ```css
 /* Good example */
 li + li {
@@ -408,28 +451,36 @@ li:first-child {
   visibility: visible;
 }
 ```
+
 16. Avoid type selectors whenever possible.
 17. Preferred units:
-  - Use seconds over milliseconds.
-  - Use hexadecimal unless transparency is specifically needed. Hexadecimal should use shorthand if possible and should be in all caps (e.g. `#D01`).
-  - Use relative units for font size, such as ems or rems. While modern browsers can smoothly zoom pixel-based layouts, sizing type in relative units ensures an entire layout can be scaled up or down by simply updating the font-size of the body element.
+
+- Use seconds over milliseconds.
+- Use hexadecimal unless transparency is specifically needed. Hexadecimal should use shorthand if possible and should be in all caps (e.g. `#D01`).
+- Use relative units for font size, such as ems or rems. While modern browsers can smoothly zoom pixel-based layouts, sizing type in relative units ensures an entire layout can be scaled up or down by simply updating the font-size of the body element.
+
 18. Use comments where appropriate to make it easier for another developer to understand your CSS.
-  - Group sections by section comment to delineate your code more easily.
+
+- Group sections by section comment to delineate your code more easily.
 
 ---
 
 ## Javascript
+
 We generally use ES5 as it is more compatibile with older browsers such as Internet Explorer 11. ES6 can be used if you're using a build step with a transpiler like [Babel](https://babeljs.io/). We don't use jQuery.
 
 ### JavaScript best practies
+
 1. Leverage [event bubbling](https://www.sitepoint.com/javascript-tooling-evolution-modern-developers-guide/) whenever possible.
 2. Functions should return new objects instead of mutating existing ones. Here is a [good reference](https://alistapart.com/article/why-mutation-can-be-scary/) on the problems with mutating objects.
 3. Minimize dependencies.
 
 ### Accessibility
+
 1. It is important to remember that not everyone has JavaScript enabled on their browser so the website should still generally function properly if JavaScript is disabled (add CSS fallbacks when possible).
 
 ### JavaScript code formatting
+
 1. Use single quotation marks for JavaScript and JSON.<br>
 **Good example:**<br>
 `var navToggle = document.querySelector('#nav-toggle');`<br>
@@ -448,11 +499,13 @@ We generally use ES5 as it is more compatibile with older browsers such as Inter
 
 ## File Structure
 
-### General naming conventions:
+### General naming conventions
+
 1. Avoid special characters and spaces in file names.
 2. File names should be clear and descriptive; providing immediate insight of their intended use or content at first glance.
 3. Use lower case names separated by hyphens.
 4. Use an underscore at the start of a style sheet if it isn't directly included in a template.
+
 ```
 **Good examples:**
 home.html
@@ -466,9 +519,11 @@ dndareas.css
 dnd_areas.css
 ```
 
-### Asset labeling:
+### Asset labeling
+
 1. All assets (templates, partials, modules, module settings, theme settings) should include a label and the label should use sentence casing.
 2. Template names should omit the word `page` in their file names or their related assets/code _unless_ it is the `Landing page` template.
+
 ```
 ****Good example:**
 home.html
@@ -479,9 +534,10 @@ home-page.html
 
 ---
 
-## Module structure:
+## Module structure
 
-### General folder structure:
+### General folder structure
+
 ```
 /module-name.module
     fields.json
@@ -490,14 +546,16 @@ home-page.html
     module.css*
     module.js*
 ```
+
 `*` Denotes optional files. If your module doesn't require CSS and/or JavaScript, please exclude these files from your module.
 
 For more information on module file structure and building modules please reference [our documentation](https://designers.hubspot.com/docs/tools/local-module-development#local-module-file-structure).
 
-### Fields.json:
+### Fields.json
 
 - Modules should include a minimal amount of field parameters that are required for setting defaults and usage. This helps keep our `fields.json` files concise and legible.
 - Module fields should be ordered in the following order:
+
 ```
 label:
 name:
@@ -510,10 +568,11 @@ inheritance:
 default:
 ```
 
-### Meta.json:
+### Meta.json
 
 - All modules should include an icon. More information on adding an icon to a module can be found [in this article](https://designers.hubspot.com/docs/building-blocks/modules/configuration#adding-an-icon).
 - `meta.json` parameters should be ordered in the following order:
+
 ```
 {
   "label": "Icon",
@@ -536,13 +595,15 @@ default:
 
 ---
 
-## Template structure:
+## Template structure
 
-### Drag and drop object formatting:
+### Drag and drop object formatting
+
 1. Opening and closing tags should be on their own line to increase legibility.
 2. Parameters (after the `name` or `path`) should be written on their own line to increase legibility.
 3. After `path`/`name` and `label`, all other parameters should be ordered alphabetically to ensure consistency and increase legibility.
 4. For margin and padding parameters, the values should be ordered: top, right, bottom, left to match CSS shorthand for those properties.
+
 ```jinja
 {# Good example: #}
 {% dnd_module path="../modules/button",
@@ -555,7 +616,8 @@ default:
 {% dnd_module path="../modules/button", button_text="Get Started", button_link="#" %}{% end_dnd_module %}
 ```
 
-### Template meta data:
+### Template meta data
+
 The top of each template should include a YAML code block formatted to match the example below. Blog and system templates should have their `label`s prefixed with the theme's name. Ex. `label: Boilerplate - blog post`.
 
 Requirements for screenshots can be found below at [Template Screenshots](#template-screenshots).
@@ -569,7 +631,8 @@ Requirements for screenshots can be found below at [Template Screenshots](#templ
 -->
 ```
 
-### Template screenshots:
+### Template screenshots
+
 Screenshots should be taken for all templates and linked in the template's meta data section (see [Template Meta Data](#template-meta-data) above). The process for creating a screenshot is:
 
 - Take a full page screenshot of the template
@@ -584,6 +647,7 @@ Screenshots should be taken for all templates and linked in the template's meta 
 ## Theme structure
 
 ### Theme.json
+
 The `theme.json` file should be structured like the code below. The file should include a `label` to match the theme's name, a `preview_path` to set the theme's default preview template, and a `screenshot_path` to set the theme's preview image which displays when a user selects which theme they want to use. The image used for the `screenshot_path` should be stored under the `/images/template-previews/` folder.
 
 ```
