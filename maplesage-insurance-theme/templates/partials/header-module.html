@@ -4,72 +4,79 @@
 -->
 
 <header class="header">
-  
+
 <!--     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" integrity="sha256-jySGIHdxeqZZvJ9SHgPNjbsBP8roij7/WjgkoGTJICk=" crossorigin="anonymous" as="style" onload="this.onload=null;this.rel='stylesheet'"/> -->
 <!--     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha256-jySGIHdxeqZZvJ9SHgPNjbsBP8roij7/WjgkoGTJICk=" crossorigin="anonymous" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha256-WmhCJ8Hu9ZnPRdh14PkGpz4PskespJwN5wwaFOfvgY8=" crossorigin="anonymous" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.css" type="text/css" rel="stylesheet"> -->
     {# Main Header Section #}
 
-    <div class="header__main-bar">
-      <div class="header__container">
-        <div class="header__logo">
-          <div class="logo-on-transparent">
-            {% module 'site_logo' path='@hubspot/logo',
-                  label='Logo For Transparent Background',
-                  img={
-                    'alt': 'Company logo',
-                    'src': get_asset_url("../../images/brand_logo_white.png"),
-                    "size_type": "auto"
-                  }
-                %}
-          </div>
-          <div class="logo-on-white">
-            {% module 'site_logo_2' path='@hubspot/logo',
-              label='Logo For White Background',
-              img={
-                'alt': 'Company logo',
-                'src': get_asset_url("../../images/brand_logo_dark.png"),
-                "size_type": "auto"
-              }
-           %}
-          </div>
-          
-          
-        </div>
+    <!--
+  templateType: global_partial
+  label: Header With Navigation
+-->
 
-        {# Main Navigation #}
-        <div class="header__menu">
-            <input type="checkbox" id="nav-toggle">
-            <label class="header__navigation-toggle" for="nav-toggle">
-              <span class="header__mobile-menu-icon"></span>
-            </label>
-            <div class="header__navigation">
-              {% module 'header_navigation_primary'
-                label='Primary navigation',
-                path='../../modules/Menu Section'
-              %}
-            </div>
-
-            {# Language Toggle #}
-            {% if content.translated_content|length %}
-              <div class="header__language-switcher">
-                <div class="header__language-switcher-label">
-                  {% module 'language-switcher'
-                    label='Language switcher',
-                    path='@hubspot/language_switcher',
-                    display_mode='localized'
+{% set is_dark_bg = theme.header.background_color.color in ['#050A14', '#011627', '#000000'] %}
+    <header class="header {{ 'header--dark' if is_dark_bg else 'header--light' }}" style="background-color: {{ theme.header.background_color.color }};">
+    
+      <div class="header__main-bar">
+        <div class="header__container">
+          <div class="header__logo">
+            <div class="logo-on-transparent logo--light">
+              {% module 'site_logo' path='@hubspot/logo',
+                    label='Logo For Dark Background',
+                    img={
+                      'alt': 'Company logo',
+                      'src': get_asset_url("../../images/brand_logo_white.png"),
+                      "size_type": "auto"
+                    }
                   %}
-                  <div class="header__language-switcher-label-current"> {{ locale_name(locale) }}</div>
-                </div>
+            </div>
+            <div class="logo-on-white logo--dark">
+              {% module 'site_logo_2' path='@hubspot/logo',
+                label='Logo For Light Background',
+                img={
+                  'alt': 'Company logo',
+                  'src': get_asset_url("../../images/brand_logo_dark.png"),
+                  "size_type": "auto"
+                }
+             %}
+            </div>
+          </div>
+    
+          {# Main Navigation #}
+          <div class="header__menu">
+              <input type="checkbox" id="nav-toggle">
+              <label class="header__navigation-toggle" for="nav-toggle">
+                <span class="header__mobile-menu-icon"></span>
+              </label>
+              <div class="header__navigation">
+                {% module 'header_navigation_primary'
+                  label='Primary navigation',
+                  path='../../modules/Menu Section'
+                %}
               </div>
-            {% endif %}
-            {# End Language Toggle #}
+    
+              {# Language Toggle #}
+              {% if content.translated_content|length %}
+                <div class="header__language-switcher">
+                  <div class="header__language-switcher-label">
+                    {% module 'language-switcher'
+                      label='Language switcher',
+                      path='@hubspot/language_switcher',
+                      display_mode='localized'
+                    %}
+                    <div class="header__language-switcher-label-current"> {{ locale_name(locale) }}</div>
+                  </div>
+                </div>
+              {% endif %}
+              {# End Language Toggle #}
+          </div>
+          {# End Main Navigation #}
+    
         </div>
-        {# End Main Navigation #}
-
       </div>
-    </div>
-    {# End Main Header Section #}
-
-</header>
+      {# End Main Header Section #}
+    
+    </header>
+    
