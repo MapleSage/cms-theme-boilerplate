@@ -1,4 +1,4 @@
-(function () {
+(function() {
   // Variables
   var link = 0;
   var item = 0;
@@ -9,7 +9,7 @@
 
   // Functions
   for (link; link < menuLinks.length; link++) {
-    menuLinks[link].addEventListener('focus', function () {
+    menuLinks[link].addEventListener('focus', function() {
       this.parentElement.classList.add('focus');
     });
 
@@ -17,7 +17,7 @@
       var subLinks = document.querySelectorAll('.level-2 li > .menu-link');
       var lastLinkIndex = subLinks.length - 1;
       var lastLink = subLinks[lastLinkIndex];
-      lastLink.addEventListener('blur', function () {
+      lastLink.addEventListener('blur', function() {
         this.parentElement.classList.remove('focus');
       });
     }
@@ -27,11 +27,11 @@
     if (window.hsInEditor) {
       return;
     } else if (firstSubmenuItems[item]) {
-      firstSubmenuItems[item].addEventListener('mouseover', function () {
+      firstSubmenuItems[item].addEventListener('mouseover', function() {
         this.previousElementSibling.classList.add('hover');
       });
 
-      firstSubmenuItems[item].addEventListener('mouseout', function () {
+      firstSubmenuItems[item].addEventListener('mouseout', function() {
         this.previousElementSibling.classList.remove('hover');
       });
     }

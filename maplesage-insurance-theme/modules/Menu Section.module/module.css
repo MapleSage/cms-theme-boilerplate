@@ -382,4 +382,4 @@
 .hs-inline-edit .submenu.level-1 > li.has-submenu:hover .submenu.level-2,
 .hs-inline-edit > li.has-submenu.focus .submenu.level-2 {
   visibility: hidden;
-
+}
