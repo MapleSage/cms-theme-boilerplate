@@ -1,22 +1,27 @@
+/* ########################################################################### */
+/* Buttons */
+/* ########################################################################### */
+
 button,
 .button,
 .hs-button {
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  transition: all 0.15s linear;
   white-space: normal;
+  transition: all 0.15s linear;
 }
 
 button:disabled,
 .button:disabled,
 .hs-button:disabled {
-  background-color: #D0D0D0;
-  border-color: #D0D0D0;
-  color: #E6E6E6;
+  background-color: #d0d0d0;
+  border-color: #d0d0d0;
+  color: #e6e6e6;
+  cursor: not-allowed;
 }
 
-/* No button */
+/* No Button Styling - for elements meant to look like plain text */
 
 .no-button,
 .no-button:hover,
@@ -25,16 +30,12 @@ button:disabled,
   background: none;
   border: none;
   border-radius: 0;
-  color: initial;
-  font-family: inherit;
-  font-size: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-  margin-bottom: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
   padding: 0;
   text-align: left;
   text-decoration: none;
   transition: none;
+  outline: none;
 }
